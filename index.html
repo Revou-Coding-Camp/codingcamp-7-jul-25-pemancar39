@@ -4,8 +4,40 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Simple To-Do List</title>
+	<link rel="stylesheet" href='css/style.css'>
+	<script type="text/javascript" src="js/script.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body>
-	
+<body class="bg-blue-950 text-white">
+	<div id="utama" class="bg-blue-400 w-225 m-auto mt-12 rounded-xl">
+	<div id="judul" class="p-5 bg-blue-500 text-3xl text-center rounded-t-xl font-bold">To-do List</div>
+	<div id="inputan" class="p-4 flex justify-between">
+		<form class="">
+			<input type="text" name="tambah_tugas" placeholder="Ketik tugas di sini....." class="flex-1 px-4 py-2 w-150 bg-gray-700 rounded placeholder-gray-400 border" />
+			<input type="date" name="tanggal" class="px-4 py-2 w-54 bg-gray-700 rounded border" />
+			<button class="bg-blue-800 px-4 py-2 rounded" name="tambah">+</button>
+		</form>
+	</div>
+	<div id="kontrol_tabel" class="flex justify-between">
+		<button class="bg-blue-800 px-4 py-2 rounded m-2" name="filter">FILTER</button>
+		<button class="bg-blue-800 px-4 py-2 rounded m-2" name="hapus_semua">HAPUS SEMUA</button>
+	</div>
+	<div id="tabel" class="flex items-center justify-center p-2">
+		<table class="w-full border-none justify-items-stretch bg-gray-800 rounded-xl">
+		<thead>
+			<tr>
+				<th class="px-4 py-3">TUGAS</th>
+				<th class="px-4 py-3">PALING LAMBAT</th>
+				<th class="px-4 py-3">STATUS</th>
+				<th class="px-4 py-3">AKSI</th>
+			</tr>
+		</thead>
+		<tbody class="text-center">
+			<tr>
+				<td colspan="4" class="px-4 py-6 text-indigo-300"> Tidak ada tugas</td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
 </body>
 </html>
