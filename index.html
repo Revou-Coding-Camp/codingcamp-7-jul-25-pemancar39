@@ -10,18 +10,21 @@
 </head>
 <body class="bg-blue-950 text-white">
 	<div id="utama" class="bg-blue-400 w-225 m-auto mt-12 rounded-xl">
-	<div id="judul" class="p-5 bg-blue-500 text-3xl text-center rounded-t-xl font-bold">To-do List</div>
-	<div id="inputan" class="p-4 flex justify-between">
+	<header class="p-5 bg-blue-500 text-3xl text-center rounded-t-xl font-bold">
+		To-do List
+	</header>
+	<main>
+		<div id="inputan" class="p-4 flex justify-between">
 		<form class="">
-			<input type="text" name="tambah_tugas" placeholder="Ketik tugas di sini....." class="flex-1 px-4 py-2 w-150 bg-gray-700 rounded placeholder-gray-400 border" />
-			<input type="date" name="tanggal" class="px-4 py-2 w-54 bg-gray-700 rounded border" />
-			<button class="bg-blue-800 px-4 py-2 rounded" name="tambah">+</button>
+			<input type="text" id="tambah_tugas" placeholder="Ketik tugas di sini....." class="flex-1 px-4 py-2 w-150 bg-gray-700 rounded placeholder-gray-400 border" />
+			<input type="date" id="tanggal" class="px-4 py-2 w-54 bg-gray-700 rounded border" />
+			<button class="bg-blue-800 px-4 py-2 rounded" name="tambah"  onclick="addTask();">+</button>
 		</form>
 	</div>
-	<div id="kontrol_tabel" class="flex justify-between">
+	<section id="kontrol_tabel" class="flex justify-between">
 		<button class="bg-blue-800 px-4 py-2 rounded m-2" name="filter">FILTER</button>
 		<button class="bg-blue-800 px-4 py-2 rounded m-2" name="hapus_semua">HAPUS SEMUA</button>
-	</div>
+	</section>
 	<div id="tabel" class="flex items-center justify-center p-2">
 		<table class="w-full border-none justify-items-stretch bg-gray-800 rounded-xl">
 		<thead>
@@ -33,11 +36,17 @@
 			</tr>
 		</thead>
 		<tbody class="text-center">
-			<tr>
-				<td colspan="4" class="px-4 py-6 text-indigo-300"> Tidak ada tugas</td>
+			<tr id="task-list">
+				<!-- Task items will be dynamically inserted here -->
 			</tr>
 		</tbody>
 	</table>
 	</div>
+	</main>
+	</div>
+	<br />
+	<footer>
+		<p class="text-center">Copyright 2025 | Teddy S. Apriana</p>
+	<footer>
 </body>
 </html>
