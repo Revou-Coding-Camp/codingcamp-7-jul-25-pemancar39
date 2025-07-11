@@ -18,12 +18,15 @@
 		<form class="">
 			<input type="text" id="tambah_tugas" placeholder="Ketik tugas di sini....." class="flex-1 px-4 py-2 w-150 bg-gray-700 rounded placeholder-gray-400 border" />
 			<input type="date" id="tanggal" class="px-4 py-2 w-54 bg-gray-700 rounded border" />
-			<button class="bg-blue-800 px-4 py-2 rounded" name="tambah"  onclick="addTask();">+</button>
+			<button class="bg-blue-800 px-4 py-2 rounded" name="tambah"  onclick="addTask(event);">+</button>
 		</form>
 	</div>
-	<section id="kontrol_tabel" class="flex justify-between">
-		<button class="bg-blue-800 px-4 py-2 rounded m-2" name="filter">FILTER</button>
-		<button class="bg-blue-800 px-4 py-2 rounded m-2" name="hapus_semua">HAPUS SEMUA</button>
+	<section id="kontrol_tabel" class="flex justify-between p-[4px]">
+		 <div class="flex gap-[8px] px-4 py-2">
+                <button class="bg-green-500 rounded px-4 py-2" onclick="filterCompletedTasks()">Tugas yang Selesai</button>
+                <button class="bg-green-800 rounded px-4 py-2" onclick="displayTasks()">Reset Filter</button>
+        </div>
+		<button class="bg-blue-800 px-4 py-2 rounded m-2" id="hapus_semua" onclick="deleteAllTasks();">HAPUS SEMUA</button>
 	</section>
 	<div id="tabel" class="flex items-center justify-center p-2">
 		<table class="w-full border-none justify-items-stretch bg-gray-800 rounded-xl">
@@ -35,10 +38,8 @@
 				<th class="px-4 py-3">AKSI</th>
 			</tr>
 		</thead>
-		<tbody class="text-center">
-			<tr id="task-list">
+		<tbody id="task-list" class="text-center">
 				<!-- Task items will be dynamically inserted here -->
-			</tr>
 		</tbody>
 	</table>
 	</div>

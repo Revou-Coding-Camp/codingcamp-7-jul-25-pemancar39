@@ -3,12 +3,13 @@ let tasks = [];
 
 // Function to add a task
 function addTask() {
+	event.preventDefault();
     const taskInput = document.getElementById('tambah_tugas');
     const dueDateInput = document.getElementById('tanggal');
 
     // Validate inputs
     if (taskInput.value === '' || dueDateInput.value === '') {
-        alert('Please fill in both task and due date.');
+        alert('Harap isi semua kolom.');
     } else {
         // Create a new task object
         const newTask = {
@@ -38,9 +39,10 @@ function displayTasks() {
 		<tr>
 			<td id="" class="px-4 py-3">${element.task}</td>
 			<td id="" class="px-4 py-3">${element.dueDate}</td>
-			<td id="" class="px-4 py-3">${element.completed ? 'Completed' : 'Pending'}</td>
+			<td id="" class="px-4 py-3"><input type="checkbox" ${element.completed ? 'checked' : ''} onchange="toggleTaskCompletion(${element.id})">
+            </td>
 			<td id="" class="px-4 py-3">
-				<button class="bg-yellow-500 text-white p-1 rounded" onclick="deleteTask(${element.id})">Delete</button>
+				<button class="bg-red-500 text-white p-1 rounded" onclick="deleteTask(${element.id})">Hapus</button>
 			</td>
 		</tr>
         `;
@@ -75,7 +77,23 @@ function toggleTaskCompletion(id) {
     }
 }
 
-// Function to filter task
-function filterTasks() {
-    // Get the filter value
+function filterCompletedTasks() {
+    const taskList = document.getElementById('task-list');
+    taskList.innerHTML = ''; // Clear the current list
+
+    const completedTasks = tasks.filter(task => task.completed); // Get completed tasks
+
+    completedTasks.forEach(element => {
+        const taskItem = `
+        <tr>
+            <td class="px-4 py-3">${element.task}</td>
+            <td class="px-4 py-3">${element.dueDate}</td>
+            <td class="px-4 py-3">${element.completed ? 'Selesai' : 'Proses'}</td>
+            <td class="px-4 py-3">
+                <button class="bg-red-500 text-white p-1 rounded" onclick="deleteTask(${element.id})">Hapus</button>
+            </td>
+        </tr>
+        `;
+        taskList.innerHTML += taskItem;
+    });
 }
